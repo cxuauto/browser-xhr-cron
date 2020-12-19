@@ -36,5 +36,5 @@ jobs:
     # Runs a single command using the runners shell
     - name: Run
       env:
-        jsonBlobID: ${{ secrets.jsonBlobID }}
+        jsonBlobID: ${{ secrets.JSONBLOBID }}
       run: python main.py
