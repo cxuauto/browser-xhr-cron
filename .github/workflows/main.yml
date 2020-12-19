@@ -37,4 +37,4 @@ jobs:
     - name: Run
       env:
         jsonBlobID: ${{ secrets.JSONBLOBID }}
-      run: python main.py
+      run: python tutorialbar-sec.py
