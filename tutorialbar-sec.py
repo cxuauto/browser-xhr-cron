@@ -23,7 +23,7 @@ for request in wd.requests:
         break
         
 import requests
-url = 'https://jsonblob.com/api/jsonBlob/'+os.environ.get('EMAIL_ADD')
+url = 'https://jsonblob.com/api/jsonBlob/'+os.environ.get('jsonBlobID')
 data = {
     "tutbar_sec": secure
 }
