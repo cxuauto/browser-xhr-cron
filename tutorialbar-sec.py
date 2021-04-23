@@ -34,14 +34,15 @@ for request in wd.requests:
     # print(request.url)
     if 'admin-ajax' in request.url:
         # req_body = request.body.decode('utf8')
-        secure = request.url[request.url.rfind('nonce=')+len('nonce='):request.url.rfind('&')]
-        print(request.url, request.querystring)
-        print(secure)
+        secure_vania = request.url[request.url.rfind('nonce=')+len('nonce='):request.url.rfind('&')]
+        # print(request.url, request.querystring)
+        print(secure_vania)
         break
         
 import requests
 url = 'https://jsonblob.com/api/jsonBlob/'+os.environ.get('jsonBlobID')
 data = {
-    "tutbar_sec": secure
+    "tutbar_sec": secure,
+    "secure_vania": secure_vania
 }
 r = requests.put(url, verify=False, json=data)
