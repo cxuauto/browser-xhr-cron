@@ -29,13 +29,12 @@ print(elem)
 elem.click()
 elem.click()
 time.sleep(2)
-wd
 for request in wd.requests:
     # print(request.url)
     if 'admin-ajax' in request.url:
         # req_body = request.body.decode('utf8')
         secure_vania = request.url[request.url.rfind('nonce=')+len('nonce='):request.url.rfind('&')]
-        print(request.querystring)
+        print(request.url)
         print(secure_vania)
         break
         
