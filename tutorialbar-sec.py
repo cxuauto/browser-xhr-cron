@@ -12,15 +12,6 @@ wd.implicitly_wait(10)
 
 import time, re, os, requests
 
-wd.get("https://www.tutorialbar.com/")
-elem = wd.find_element_by_css_selector(".col_item")
-wd.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-time.sleep(2)
-for request in wd.requests:
-    if request.response and request.method == 'POST' and ('admin-ajax' in request.url):
-        req_body = request.body.decode('utf8')
-        secure = req_body[req_body.rfind('security=')+len('security='):]
-        break
         
 wd.get("https://coursevania.com/courses/")
 time.sleep(2)
@@ -37,11 +28,22 @@ for request in wd.requests:
         print(request.url)
         print(secure_vania)
         break
+
+wd.get("https://www.tutorialbar.com/")
+elem = wd.find_element_by_css_selector(".col_item")
+wd.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+time.sleep(2)
+for request in wd.requests:
+    if request.response and request.method == 'POST' and ('admin-ajax' in request.url):
+        req_body = request.body.decode('utf8')
+        tut_secure = req_body[req_body.rfind('security=')+len('security='):]
+        break
+
         
 import requests
 url = 'https://jsonblob.com/api/jsonBlob/'+os.environ.get('jsonBlobID')
 data = {
-    "tutbar_sec": secure,
+    "tutbar_sec": tut_secure,
     "secure_vania": secure_vania
 }
 r = requests.put(url, verify=False, json=data)
