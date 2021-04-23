@@ -22,6 +22,23 @@ for request in wd.requests:
         secure = req_body[req_body.rfind('security=')+len('security='):]
         break
         
+wd.get("https://coursevania.com/courses/")
+time.sleep(2)
+elem = wd.find_element_by_css_selector("a.stm_lms_load_more_courses")
+print(elem)
+elem.click()
+elem.click()
+time.sleep(2)
+wd
+for request in wd.requests:
+    # print(request.url)
+    if 'admin-ajax' in request.url:
+        # req_body = request.body.decode('utf8')
+        secure = request.url[request.url.rfind('nonce=')+len('nonce='):request.url.rfind('&')]
+        print(request.url, request.querystring)
+        print(secure)
+        break
+        
 import requests
 url = 'https://jsonblob.com/api/jsonBlob/'+os.environ.get('jsonBlobID')
 data = {
