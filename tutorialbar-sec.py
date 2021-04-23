@@ -35,7 +35,7 @@ for request in wd.requests:
     if 'admin-ajax' in request.url:
         # req_body = request.body.decode('utf8')
         secure_vania = request.url[request.url.rfind('nonce=')+len('nonce='):request.url.rfind('&')]
-        # print(request.url, request.querystring)
+        print(request.querystring)
         print(secure_vania)
         break
         
