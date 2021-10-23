@@ -12,16 +12,16 @@ wd.implicitly_wait(10)
 
 import time, re, os, requests
 
-wd.get("https://www.tutorialbar.com/")
-elem = wd.find_element_by_css_selector(".col_item")
-wd.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-time.sleep(2)
-for request in wd.requests:
-    if request.response and request.method == 'POST' and ('admin-ajax' in request.url):
-        req_body = request.body.decode('utf8')
-        tut_secure = req_body[req_body.rfind('security=')+len('security='):]
-        break
-        
+# wd.get("https://www.tutorialbar.com/")
+# elem = wd.find_element_by_css_selector(".col_item")
+# wd.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+# time.sleep(2)
+# for request in wd.requests:
+#     if request.response and request.method == 'POST' and ('admin-ajax' in request.url):
+#         req_body = request.body.decode('utf8')
+#         tut_secure = req_body[req_body.rfind('security=')+len('security='):]
+#         break
+tut_secure = ''
         
 wd.get("https://coursevania.com/courses/")
 time.sleep(2)
