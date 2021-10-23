@@ -1,6 +1,8 @@
 from shutil import which
 from seleniumwire  import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
 options.add_argument('--no-sandbox')
@@ -24,8 +26,8 @@ import time, re, os, requests
 tut_secure = ''
         
 wd.get("https://coursevania.com/courses/")
-time.sleep(2)
-elem = wd.find_element_by_css_selector("a.stm_lms_load_more_courses")
+time.sleep(3)
+elem = wd.find_element(By.CSS_SELECTOR,"a.stm_lms_load_more_courses")
 print(elem)
 elem.click()
 elem.click()
