@@ -26,7 +26,7 @@ import time, re, os, requests
 tut_secure = ''
         
 wd.get("https://coursevania.com/courses/")
-time.sleep(4)
+time.sleep(10)
 wd.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 elem = wd.find_element(By.CSS_SELECTOR,"a.stm_lms_load_more_courses")
 print(elem)
